@@ -10,6 +10,7 @@
   drv
 , # Additional build inputs to put into environment.
   buildInputs ? [ ]
+, withHoogle ? true
 }:
 let
   tools = import ./shell {
@@ -20,7 +21,7 @@ let
   shellFor = packages:
     pkgs.haskell.packages.${compilerName}.shellFor {
       packages = _: packages;
-      withHoogle = true;
+      withHoogle = withHoogle;
       buildInputs = buildInputs ++ tools.buildInputs;
     };
 
