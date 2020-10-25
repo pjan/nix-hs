@@ -2,6 +2,7 @@
 , pkgs ? import sources.nixpkgs { }
 , compiler ? "default"
 , name ? "nix-hs"
+, withHoogle ? true
 }:
 let
   overrideHaskellPackages = overrides:
@@ -64,6 +65,7 @@ pkgs.mkShell {
       ghc
       hasktags
       hlint
-      hoogle
-    ]);
+    ] ++
+    if withHoogle then [ hoogle ] else [ ]
+    );
 }

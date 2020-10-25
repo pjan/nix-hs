@@ -15,7 +15,7 @@
 }:
 let
   tools = import ./shell {
-    inherit pkgs;
+    inherit pkgs withHoogle;
     compiler = compilerName;
   };
 
