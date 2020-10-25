@@ -65,7 +65,8 @@ pkgs.mkShell {
       ghc
       hasktags
       hlint
+      hoogle
     ] ++
-    if withHoogle then [ hoogle ] else [ ]
+    (if withHoogle then [ hoogle ] else [ ];)
     );
 }
