@@ -67,6 +67,6 @@ pkgs.mkShell {
       hlint
       hoogle
     ] ++
-    (if withHoogle then [ hoogle ] else [ ];)
+    (if withHoogle then [ hoogle ] else [ ])
     );
 }
