@@ -10,7 +10,7 @@
   drv
 , # Additional build inputs to put into environment.
   buildInputs ? [ ]
-, withHoogle ? true
+, withHoogle ? false
 }:
 let
   tools = import ./shell {
