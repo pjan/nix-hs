@@ -8,9 +8,10 @@
   # a derivation an attribute set is given, create an interactive
   # environment for all packages in the set.
   drv
+, # should the shell have hoogle for the packages locally
+  withHoogle ? true
 , # Additional build inputs to put into environment.
   buildInputs ? [ ]
-, withHoogle ? false
 }:
 let
   tools = import ./shell {

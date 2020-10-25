@@ -58,6 +58,8 @@
   addDataFiles ? null
 , # A nixpkgs version string for GHC, or "default":
   compiler ? "default"
+, # local hoogle
+  withHoogle ? true
 }:
 let
   # Helper functions for various compiler features.
@@ -145,7 +147,7 @@ let
           drv;
       makeInteractive = drv:
         import ./interactive.nix {
-          inherit drv buildInputs;
+          inherit drv buildInputs withHoogle;
           pkgs = basepkgs;
           compilerName = compilers.name compiler;
         };
